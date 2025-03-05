@@ -1,0 +1,56 @@
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fff;
+  padding: 0.5rem 2rem;
+  height: fit-content;
+  width: 300px;
+
+  border-radius: 8px;
+  .cartTitle {
+    text-align: left;
+  }
+
+  .itemOnCart {
+    display: flex;
+    justify-content: space-between;
+
+    .itemInfo {
+      display: flex;
+      flex-direction: column;
+      gap: -3rem;
+    }
+
+    .deleteFromCartBtn {
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .deleteFromCartBtn:hover {
+      color: red;
+    }
+  }
+
+  .bottomCart {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #b86901;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff9203;
+      color: #fff;
+    }
+  }
+}

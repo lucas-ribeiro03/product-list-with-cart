@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+}
+
+.menuContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 4rem;
+  margin-right: 4rem;
+}
