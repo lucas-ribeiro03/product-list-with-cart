@@ -13,6 +13,7 @@ import { Register } from "./components/Register/Register";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoggedUser, setIsLoggedUser] = useState(false);
 
   return (
     <Provider store={store}>
@@ -24,7 +25,7 @@ function App() {
               element={
                 <>
                   <div style={{ gridArea: "box1" }} className={styles.navbar}>
-                    <Navbar />
+                    <Navbar logUser={isLoggedUser ? true : false} />
                   </div>
                   <div
                     style={{ gridArea: "box2" }}
@@ -42,7 +43,10 @@ function App() {
                 </>
               }
             />
-            <Route path="/login" element={<Login />} />
+            <Route
+              path="/login"
+              element={<Login logUser={() => setIsLoggedUser(true)} />}
+            />
             <Route path="/register" element={<Register />} />
           </Routes>
         </div>
