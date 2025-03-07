@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-export const Login: React.FC = () => {
+interface LoginProps {
+  logUser: () => void;
+}
+
+export const Login: React.FC<LoginProps> = ({ logUser }) => {
   const user = useSelector(
     (rootReducer: RootReducer) => rootReducer.UserReducer
   );
@@ -27,6 +31,7 @@ export const Login: React.FC = () => {
     } else {
       console.log("concluido");
       navigate("/");
+      logUser();
     }
   }
 

@@ -1,20 +1,42 @@
 import styles from "./style.module.scss";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../../redux/UserReducer/userSlice";
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  logUser: boolean;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ logUser }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  function handleLogout() {
+    dispatch(deleteUser({}));
+  }
+
   return (
     <div className={styles.navbarContainer}>
       <nav>
         <ul>
           <li>
-            <Link className={styles.loginButton} to="/login">
-              Login
-            </Link>
+            <button
+              className={styles.registerButton}
+              onClick={() => (logUser ? navigate("/") : navigate("/login"))}
+            >
+              {logUser ? "Account" : "Login"}
+            </button>
           </li>
           <li>
-            <Link className={styles.registerButton} to="/register">
-              Register
-            </Link>
+            <button
+              onClick={() => {
+                navigate("/register");
+                if (logUser) handleLogout();
+              }}
+              className={styles.registerButton}
+            >
+              {logUser ? "Logout" : "Register"}
+            </button>
           </li>
         </ul>
       </nav>
