@@ -3,6 +3,7 @@ import { RootReducer } from "../../redux/root-reducer";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 interface LoginProps {
   logUser: () => void;
@@ -23,13 +24,12 @@ export const Login: React.FC<LoginProps> = ({ logUser }) => {
   function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!user.user) {
-      alert("usuario nao existe");
+      toast.error("Unknown user");
     } else if (user.user?.password !== loginUser.password) {
-      alert("incorrect password");
+      toast.error("Incorrect password");
     } else if (user.user?.email !== loginUser.email) {
-      alert("incorrect email");
+      toast.error("Incorrect email");
     } else {
-      console.log("concluido");
       navigate("/");
       logUser();
     }
@@ -37,6 +37,7 @@ export const Login: React.FC<LoginProps> = ({ logUser }) => {
 
   return (
     <div className={styles.container}>
+      <ToastContainer autoClose={1000} />
       <div className={styles.formContainer}>
         <form onSubmit={handleLogin}>
           <div className={styles.inputBox}>

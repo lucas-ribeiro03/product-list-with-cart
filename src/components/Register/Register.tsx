@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { registerUser, User } from "../../redux/UserReducer/userSlice";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 export const Register: React.FC = () => {
   const [user, setUser] = useState<User>({
@@ -18,9 +19,9 @@ export const Register: React.FC = () => {
   function handleRegister(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (user.password !== confirmPassword) {
-      alert("senhas nao coincidem");
+      toast.error("Passwords must be equals");
     } else if (user.password.length < 6) {
-      alert("password must be greater than 6 ch");
+      toast.error("password must be greater than 6 characters");
     } else {
       dispatch(
         registerUser({
@@ -37,6 +38,7 @@ export const Register: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      <ToastContainer autoClose={1000} />
       <div className={styles.formContainer}>
         <form onSubmit={handleRegister}>
           <div className={styles.inputBox}>
