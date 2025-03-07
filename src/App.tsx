@@ -31,7 +31,7 @@ function App() {
                     style={{ gridArea: "box2" }}
                     className={styles.productList}
                   >
-                    <ProductList />
+                    <ProductList logUser={isLoggedUser ? true : false} />
                   </div>
                   <div style={{ gridArea: "box3" }} className={styles.cart}>
                     <Cart openModal={() => setIsModalOpen(true)} />
