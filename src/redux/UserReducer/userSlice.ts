@@ -12,7 +12,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  user: null,
+  user: JSON.parse(localStorage.getItem("user") || "null"),
 };
 
 export const userSlice = createSlice({
@@ -28,6 +28,7 @@ export const userSlice = createSlice({
       const deletedUser = action.payload;
       if (deletedUser) {
         state.user = null;
+        localStorage.removeItem("user");
       }
     },
   },
