@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+$mobile: 425px;
+
 * {
   font-family: "montserrat";
 }
@@ -18,5 +20,19 @@ body {
 
   .productList {
     margin-left: 5rem;
+  }
+}
+
+@media (max-width: $mobile) {
+  .global {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .productList {
+      margin-left: 0;
+      margin-top: 6rem;
+    }
   }
 }
