@@ -104,4 +104,7 @@
 
 $mobile: 425px;
 @media (max-width: $mobile) {
+  .modal {
+    width: 200px;
+  }
 }
