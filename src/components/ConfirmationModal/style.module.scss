@@ -1,6 +1,6 @@
 .modalContainer {
   background-color: rgba(0, 0, 0, 0.4);
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,6 +9,7 @@
   height: 100vh;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 
 @keyframes openModal {
@@ -29,6 +30,8 @@
   padding: 2rem 5rem;
   height: fit-content;
   animation: openModal 0.4s ease;
+  position: fixed;
+  overflow: hidden;
 
   svg {
     color: green;
@@ -97,4 +100,8 @@
       cursor: pointer;
     }
   }
+}
+
+$mobile: 425px;
+@media (max-width: $mobile) {
 }
