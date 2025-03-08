@@ -9,3 +9,19 @@
   gap: 4rem;
   margin-right: 4rem;
 }
+
+$mobile: 425px;
+
+@media (max-width: $mobile) {
+  .container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .menuContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-right: 0;
+  }
+}
